@@ -2,11 +2,8 @@ import pygame
 import os
 import random
 import sys
+
 pygame.init()
-
-
-
-
 
 def load_image(filename):
     try:
@@ -34,7 +31,7 @@ SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
 SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Dino Game")
-icon_path = os.path.join("assets", "dino_icon.ico")  
+icon_path = os.path.join("assets", "dino_icon.png")  
 icon_surface = pygame.image.load(icon_path)
 pygame.display.set_icon(icon_surface)
 
@@ -127,7 +124,6 @@ class Dinosaur:
 
     def draw(self, screen):
         screen.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
-        pygame.draw.rect(screen, (255, 0, 0), self.hitbox, 2)
 
 
 class cloud:
@@ -177,7 +173,6 @@ class Obstacle:
 
     def draw(self, screen):
         screen.blit(self.image[self.type], self.rect)
-        pygame.draw.rect(screen, (0, 255, 0), self.hitbox, 2)
 
 
 class smallcactus(Obstacle):
@@ -200,8 +195,8 @@ class ptero(Obstacle):
         self.update_hitbox()
 
     def update_hitbox(self):
-        hitbox_width = int(self.rect.width * 0.8)
-        hitbox_height = int(self.rect.height * 0.8)
+        hitbox_width = int(self.rect.width * 0.89)
+        hitbox_height = int(self.rect.height * 0.89)
         x_offset = int(self.rect.width * 0.2)
         y_offset = int(self.rect.height * 0.25)
         self.hitbox = pygame.Rect(
@@ -216,7 +211,6 @@ class ptero(Obstacle):
             self.index = 0
         screen.blit(self.image[self.index // 5], self.rect)
         self.index += 1
-        pygame.draw.rect(screen, (0, 0, 255), self.hitbox, 2)
 
 
 class Game:
@@ -239,8 +233,8 @@ class Game:
         if self.points % 100 == 0 and self.game_speed < 50:
             self.game_speed += 1
 
-        text = self.font.render("Points: " + str(self.points), True, (0, 0, 0))
-        SCREEN.blit(text, (900, 40))
+        text = self.font.render(f"Points: {str(self.points)}", True, (0, 0, 0))
+        SCREEN.blit(text, (850, 40))
 
     def background(self):
         image_width = self.resources["sand"].get_width()
@@ -263,7 +257,7 @@ class Game:
                         self.paused = True
 
             if self.paused:
-                SCREEN.fill((255, 255, 255))  # белый фон
+                SCREEN.fill((255, 255, 255)) 
                 pause_text = self.font.render("Paused. Press any key to resume...", True, (0, 0, 0))
                 SCREEN.blit(pause_text, (350, 200))
                 pygame.display.update()
@@ -307,14 +301,11 @@ class Game:
         run = True
         while run:
             SCREEN.fill((255, 255, 255))
-#            font = pygame.font.Font(os.path.join("assets", "CuteDino-G33gG.ttf"), 25)
-  #          self.font.render("Paused. Press any key to resume...", True, (0, 0, 0))
-
             if self.death_count == 0:
                 text = self.font.render("Press any key to start!", True, (0, 0, 0))
             else:
-                text = self.font.render("Press any Key to Restart", True, (0, 0, 0))
-                score = self.font.render("Your Score: " + str(self.points), True, (0, 0, 0))
+                text = self.font.render("Press any key to restart", True, (0, 0, 0))
+                score = self.font.render(f"Your score: {str(self.points)}", True, (0, 0, 0))
                 SCREEN.blit(score, (SCREEN_WIDTH // 2 - 100, SCREEN_HEIGHT // 2 + 50))
 
             SCREEN.blit(text, (SCREEN_WIDTH // 2 - 150, SCREEN_HEIGHT // 2))
