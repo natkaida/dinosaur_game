@@ -9,7 +9,7 @@ def load_image(filename):
     try:
         return pygame.image.load(os.path.join("assets", filename))
     except pygame.error as e:
-        print(f"[Ошибка] Не удалось загрузить assets/{filename}: {e}")
+        print(f"Error loading assets/{filename}: {e}")
         return None
 
 def load_images(filenames):
@@ -126,7 +126,7 @@ class Dinosaur:
         screen.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
 
 
-class cloud:
+class Cloud:
     def __init__(self, resources, game_speed):
         self.image = resources["cloud"]
         self.width = self.image.get_width()
@@ -175,19 +175,19 @@ class Obstacle:
         screen.blit(self.image[self.type], self.rect)
 
 
-class smallcactus(Obstacle):
+class SmallCactus(Obstacle):
     def __init__(self, image, game_speed):
         super().__init__(image, random.randint(0, 2), game_speed)
         self.rect.y = 325
 
 
-class largecactus(Obstacle):
+class LargeCactus(Obstacle):
     def __init__(self, image, game_speed):
         super().__init__(image, random.randint(0, 2), game_speed)
         self.rect.y = 300
 
 
-class ptero(Obstacle):
+class Ptero(Obstacle):
     def __init__(self, image, game_speed):
         super().__init__(image, 0, game_speed)
         self.rect.y = 250
@@ -195,7 +195,7 @@ class ptero(Obstacle):
         self.update_hitbox()
 
     def update_hitbox(self):
-        hitbox_width = int(self.rect.width * 0.89)
+        hitbox_width = int(self.rect.width * 0.6)
         hitbox_height = int(self.rect.height * 0.89)
         x_offset = int(self.rect.width * 0.2)
         y_offset = int(self.rect.height * 0.25)
@@ -225,7 +225,7 @@ class Game:
         self.font = pygame.font.Font(os.path.join("assets", "CuteDino-G33gG.ttf"), 25)
         self.clock = pygame.time.Clock()
         self.player = Dinosaur(self.resources)
-        self.cloud = cloud(self.resources, self.game_speed)
+        self.cloud = Cloud(self.resources, self.game_speed)
         self.paused = False
 
     def score(self):
@@ -273,11 +273,11 @@ class Game:
             if len(self.obstacles) == 0:
                 choice = random.randint(0, 2)
                 if choice == 0:
-                    self.obstacles.append(smallcactus(self.resources["small_cactus"], self.game_speed))
+                    self.obstacles.append(SmallCactus(self.resources["small_cactus"], self.game_speed))
                 elif choice == 1:
-                    self.obstacles.append(largecactus(self.resources["large_cactus"], self.game_speed))
+                    self.obstacles.append(LargeCactus(self.resources["large_cactus"], self.game_speed))
                 else:
-                    self.obstacles.append(ptero(self.resources["ptero"], self.game_speed))
+                    self.obstacles.append(Ptero(self.resources["ptero"], self.game_speed))
 
             for obstacle in list(self.obstacles):
                 obstacle.draw(SCREEN)
@@ -328,7 +328,7 @@ class Game:
         self.points = 0
         self.obstacles = []
         self.player = Dinosaur(self.resources)
-        self.cloud = cloud(self.resources, self.game_speed)
+        self.cloud = Cloud(self.resources, self.game_speed)
         self.paused = False
 
 
