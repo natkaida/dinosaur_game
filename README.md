@@ -1,6 +1,6 @@
 # 🦖 Dino Game — Python Version 
 
-This is a Python recreation of the well-known browser game — the **Chrome Dino Game**. Built using the `pygame` library, this version brings the familiar gameplay experience to your desktop. The project is intended for educational and personal use. Original assets belong to their respective creators.
+This is a Python recreation of the well-known browser game — the **Chrome Dinosaur Game**. Built using the `pygame` library, this version brings the familiar gameplay experience to your desktop. The project is intended for educational and personal use. Original assets belong to their respective creators.
 
 Это десктопная Python реализация знаменитой игры с динозавром для браузера Chrome, написанная с использованием библиотеки pygame. Проект создан для учебных и личных целей. Все оригинальные ресурсы принадлежат их авторам.
 
