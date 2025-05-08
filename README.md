@@ -4,6 +4,8 @@ This is a Python recreation of the well-known browser game — the **Chrome Dino
 
 Это десктопная Python реализация знаменитой игры с динозавром для браузера Chrome, написанная с использованием библиотеки pygame. Проект создан для учебных и личных целей. Все оригинальные ресурсы принадлежат их авторам.
 
+![Screenshot 2025-05-08 213319](https://github.com/user-attachments/assets/e8f97baa-ec79-4b4d-b816-fd931a11c3cf)
+
 ### 🎮 Features
 
 - Classic running dinosaur gameplay
@@ -12,6 +14,8 @@ This is a Python recreation of the well-known browser game — the **Chrome Dino
 - Pause and resume with the spacebar
 - Increasing game speed as score increases
 - Score counter and game restart screen
+
+![Screenshot 2025-05-08 213137](https://github.com/user-attachments/assets/699a52f5-c861-4953-99cd-7d185e258a2b)
 
 ### 🖼️ Assets
 
