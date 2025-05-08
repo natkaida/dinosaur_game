@@ -1,8 +1,8 @@
-# Dino Game — Python Version 🦖
+# 🦖 Dino Game — Python Version 
 
-## English
+This is a Python recreation of the well-known browser game — the **Chrome Dino Game**. Built using the `pygame` library, this version brings the familiar gameplay experience to your desktop. The project is intended for educational and personal use. Original assets belong to their respective creators.
 
-This is a Python recreation of the well-known browser game that appears when you're offline in Google Chrome — the **Chrome Dino Game**. Built using the `pygame` library, this version brings the familiar gameplay experience to your desktop.
+Это десктопная Python реализация знаменитой игры с динозавром для браузера Chrome, написанная с использованием библиотеки pygame. Проект создан для учебных и личных целей. Все оригинальные ресурсы принадлежат их авторам.
 
 ### 🎮 Features
 
@@ -11,7 +11,7 @@ This is a Python recreation of the well-known browser game that appears when you
 - Clouds and background elements for visual depth
 - Pause and resume with the spacebar
 - Increasing game speed as score increases
-- Score counter and game over screen
+- Score counter and game restart screen
 
 ### 🖼️ Assets
 
@@ -34,3 +34,8 @@ Then run the game:
 ```bash
 python main.py
 ```
+
+### 🧊 Requirements
+
+- Python 3.6 or higher
+- pygame 2.0+
